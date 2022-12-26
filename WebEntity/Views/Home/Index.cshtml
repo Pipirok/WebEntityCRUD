@@ -1,0 +1,35 @@
+﻿@using WebEntity.Models.EntityFrameWork
+@model List<WebUser>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<a class="btn btn-primary m-2" href="/Home/AddUser">Add new user</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Full name</th>
+            <th>Register Date</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (WebUser user in Model)
+        {
+            <tr>
+                <td>@user.id</td>
+                <td>@user.first_name @user.last_name</td>
+                <td>@user.register_date.Value.ToLongDateString()</td>
+                <td><a class="btn btn-warning text-light" href="/Home/Update/@user.id">Update</a></td>
+                <td><a class="btn btn-danger" href="/Home/Delete/@user.id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

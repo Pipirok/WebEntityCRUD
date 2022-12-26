@@ -1,0 +1,22 @@
+﻿@model WebEntity.Models.EntityFrameWork.WebUser
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" action="/Home/Update" class="mb-4">
+    <div class="container">
+        <input hidden name="ID" value="@Model.id" />
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First name</label>
+            <input name="first_name" placeholder="@Model.first_name" type="text" required class="form-control" id="firstName" />
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last name</label>
+            <input name="last_name" placeholder="@Model.last_name" type="text" required class="form-control" id="lastName" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+

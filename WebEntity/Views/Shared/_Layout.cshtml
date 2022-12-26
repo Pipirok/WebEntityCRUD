@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script>
+        window.onload = function () {
+            console.log(12);
+            let scrollToTopButton = document.getElementById('scrollToTop');
+            function onScroll() {
+                if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                    scrollToTopButton.style.display = "block";
+                } else {
+                    scrollToTopButton.style.display = "none";
+                }
+            }
+
+
+            window.onscroll = onScroll;
+        };
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</head>
+<body>
+    <div class="main-cont">
+        @Html.Partial("_Header")
+        <main class="container">
+            @RenderBody()
+        </main>
+        @Html.Partial("_Footer")
+    </div>
+    <button onclick="scrollToTop()" class="btn btn-danger" style="display: none" id="scrollToTop">Back to top</button>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
